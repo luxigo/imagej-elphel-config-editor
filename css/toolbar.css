@@ -1,0 +1,14 @@
+.toolbar {
+  background: rgba(255,255,255,0.8);
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  height: 56px;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  user-select:none;
+}
+
+body {
+  padding-top: 56px;
+}

@@ -1,0 +1,13 @@
+input#filter {
+  float: right;
+  margin-right: 16px;
+  margin-top: 16px;
+}
+
+#config li {
+  display: none;
+}
+
+#config li.visible {
+  display: list-item;
+}

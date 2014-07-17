@@ -1,0 +1,94 @@
+.button {
+  z-index: 99;
+  position: absolute;
+  -webkit-border-radius:15%;
+          border-radius:15%;
+  cursor: pointer;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  user-select:none;
+}
+
+.text {
+  height: 16px;
+  padding: 10px;
+  border-width: 1px;
+  border-color: #00B8F1;
+  background-color: white;
+  opacity: 40%;
+  color: #135FAC;
+}
+ 
+.relief {
+  opacity: 0.3;
+  background: linear-gradient( to bottom, white, gray);
+  border-style: outset;
+  color: rgba(0,0,0,0);
+} 
+.relief:hover {
+  background: linear-gradient( to top, white, gray);
+  border-style: outset;
+} 
+.relief:active {
+  background: linear-gradient( to top, white, black);
+  border-style: inset;
+} 
+  
+.relief.enabled {
+  opacity: 0.3;
+  background: linear-gradient( to bottom, white, blue);
+  border-style: outset;
+} 
+.relief.enabled:hover {
+  background: linear-gradient( to top, white, blue);
+  border-style: outset;
+} 
+.relief.enabled:active {                                                                                                                    
+  background: linear-gradient( to top, white, blue);
+  border-style: inset;
+} 
+  
+.relief {
+  opacity: 0.3;
+  background: linear-gradient( to bottom, white, gray);
+  border-style: outset;
+} 
+.relief:hover {
+  background: linear-gradient( to top, white, gray);
+  border-style: outset;
+} 
+.relief:active {
+  background: linear-gradient( to top, white, black);
+  border-style: inset;
+} 
+  
+.relief.enabled {
+  opacity: 0.3;
+  background: linear-gradient( to bottom, white, blue);
+  border-style: outset;
+} 
+.relief.enabled:hover {
+  background: linear-gradient( to top, white, blue);
+  border-style: outset;
+} 
+.relief.enabled:active {                                                                                                                    
+  background: linear-gradient( to top, white, blue);
+  border-style: inset;
+} 
+  
+.load {
+  margin-top: 8px;
+  margin-left: 8px;
+} 
+  
+.revert {
+  margin-top: 8px;
+  margin-left: 72px;
+} 
+  
+.save {
+  margin-top: 8px;
+  margin-left: 144px;
+} 
+  
+
