@@ -51,7 +51,7 @@ function loadConfig(xml,include,exclude) {
     }
   });
 
-  $('#filter').on('search',filterList);
+  $('#filter').on('search change',filterList);
 
   $(document).on('click', 'li.collapsible', function toggleObject() {
     if ($(this).hasClass('collapsed')) {
