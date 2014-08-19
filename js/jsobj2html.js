@@ -38,7 +38,7 @@
  * @param: options.obj the object to parse
  * @param: options.root the root level (default: '')
  * @param: options.filter(path) function return true to exclude path from gui
- * @param: options.expand set to true to expand all objects
+ * @param: options.expand set to true or recursive to expand objects
  */
 function obj2html(options) {
   var tree=$('<ul></ul>');
@@ -60,6 +60,7 @@ function obj2html(options) {
         var ul=obj2html({
           obj: options.obj[property],
           filter: options.filter,
+          expand: options.expand=="recursive",
           root: path+'.'
         });
         if (insertPoint) {
@@ -91,7 +92,7 @@ function obj2html(options) {
     }
   }
 
-  if (!options.expand) {
+  if (options.expand!="true" && options.expand!="recursive") {
     $('.collapsible',tree).each(function(){
       $(this).next().hide();
       $(this).addClass('collapsed');
@@ -113,31 +114,35 @@ function filterList(e) {
       var regexp=new RegExp(str,"i");
       $('#config li:not(.collapsible)').each(function(i,li){
         li=$(li);
-        var id=$('input',li)[0].id;
+        var id=$('input',li)[0].id.replace(/^([^\.]+\.)+/,'');
         if (id.match(regexp)) {
           li.addClass('visible');
         } else {
           li.removeClass('visible');
         }
+
+        while(true) {
         /* (un)collapse (not) empty parent */ 
-        var ul=li.parent();
-        var header=ul.prev();
-        // do not collapse top level
-        if (header.length) {
+          var ul=li.parent();
+          var header=ul.prev();
+          if (header.text()=="cameraIPs") {
+            var yo=true;
+          }
+          // TODO: do not collapse top header included from url (&include=)
+          // TODO: reset collapsed status (use another class for collapsing with search ?) after search (when search input is cleared ie str="")
+          if (!header.length) break;
           if ($('.visible:not(.collapsible)',ul).length) {
-            if (header.text()=="CAMERAS"){
-              console.log($('.visible:not(.collapsible)',ul));
-            }
-            if (header.hasClass('collapsed')) {
+            if (header.hasClass('collapsed')||!header.hasClass('visible')) {
               ul.show();
-              header.removeClass('collapsed');
+              header.removeClass('collapsed').addClass('visible');
             }
           } else {
-            if (!header.hasClass('collapsed')) {
+            if ((!header.hasClass('collapsed'))||header.hasClass('visible')) {
               ul.hide();
-              header.addClass('collapsed');
+              header.addClass('collapsed').removeClass('visible');
             }
           }
+          li=header;
         }
       });
     }
