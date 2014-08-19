@@ -1,14 +1,8 @@
 /*
- * obj2html.js - javascript object to html gui
+ * imagej-elphel-config-editor
  *
  * Copyright (c) 2014 FOXEL SA - http://foxel.ch
  * Please read <http://foxel.ch/license> for more information.
- *
- *
- * Author(s):
- *
- *      Luc Deschenaux <luc.deschenaux@foxel.ch>
- *
  *
  * This file is part of the FOXEL project <http://foxel.ch>.
  *
@@ -34,8 +28,11 @@
  *
  *      You are required to attribute the work as explained in the "Usage and
  *      Attribution" section of <http://foxel.ch/license>.
+ *
+ * This file : jsob2html.js
+ * Author(s) : Luc Deschenaux <l.deschenaux@foxel.ch> 
+ *
  */
-
 
 /**
  * @param: options.obj the object to parse
