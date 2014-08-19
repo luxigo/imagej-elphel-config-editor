@@ -125,9 +125,6 @@ function filterList(e) {
         /* (un)collapse (not) empty parent */ 
           var ul=li.parent();
           var header=ul.prev();
-          if (header.text()=="cameraIPs") {
-            var yo=true;
-          }
           // TODO: do not collapse top header included from url (&include=)
           // TODO: reset collapsed status (use another class for collapsing with search ?) after search (when search input is cleared ie str="")
           if (!header.length) break;
