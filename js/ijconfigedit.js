@@ -9,12 +9,13 @@ $(document).ready(function(){
   if (exclude){
     exclude=new RegExp(exclude);
   }
+  var checkboxes=(!getParameterByName('checkboxes').match(/0|false/));
   if (xml){
-    loadConfig(xml,include,exclude);
+    loadConfig(xml,include,exclude,checkboxes);
   }
 });
 
-function loadConfig(xml,include,exclude) {
+function loadConfig(xml,include,exclude,checkboxes) {
   $.ajax({
     url: xml,
     success: function(xml) {
@@ -38,7 +39,8 @@ function loadConfig(xml,include,exclude) {
       console.log(prefs.properties);
       var parseOptions={
         obj: prefs.properties,
-        expand: getParameterByName('expand')
+        expand: getParameterByName('expand'),
+        checkboxes: checkboxes
       }
       if (include || exclude) {
         parseOptions.filter=function(name){

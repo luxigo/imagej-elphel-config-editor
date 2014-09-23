@@ -61,6 +61,7 @@ function obj2html(options) {
           obj: options.obj[property],
           filter: options.filter,
           expand: options.expand=="recursive",
+          checkboxes: options.checkboxes,
           root: path+'.'
         });
         if (insertPoint) {
@@ -73,8 +74,18 @@ function obj2html(options) {
         break;
 
       default: 
-        var type=options.obj[property].match(/^[0-9\.\-]+$/)?'number':'text';
-        var li='<li class="visible"><label for="'+path+'">'+property+'</label><input id="'+path+'" type="'+type+'" value="'+options.obj[property]+'">';
+        var type=
+          options.obj[property].match(/^[0-9\.\-]+$/)?'number':
+          options.obj[property].match(/true|false/)&&options.checkboxes?'checkbox':'text';
+        var li='<li class="visible"><label for="'+path+'">'+property+'</label><input id="'+path+'" type="'+type+'" ';
+        switch(type) {
+          case 'checkbox':
+            li+=(options.obj[property]=="true")?'checked>':'>';
+            break;
+          default:  
+            li+='value="'+options.obj[property]+'">';
+            break;
+        }
         var insertPoint=null;
         $('li',tree).each(function(){
           var $this=$(this)

@@ -40,3 +40,7 @@ input {
   padding: 2px;
 
 }
+
+input[type="checkbox"] {
+  width: auto;
+}

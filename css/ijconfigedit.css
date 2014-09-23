@@ -11,3 +11,7 @@ input#filter {
 #config li.visible {
   display: list-item;
 }
+
+#config ul {
+  padding-bottom: 48px;
+}
